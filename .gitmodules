@@ -1,0 +1,3 @@
+[submodule "qml/qommons"]
+	path = qml/qommons
+	url = https://github.com/R1tschY/qommons.git
