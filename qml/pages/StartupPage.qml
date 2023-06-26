@@ -21,7 +21,10 @@ Page {
         }
 
         onErrorOccured: {
-            pageStack.replace(Qt.resolvedUrl("ErrorPage.qml"), {},
+            pageStack.replace(Qt.resolvedUrl("ErrorPage.qml"), {
+                                  "header": qsTr("Error"),
+                                  "text": message
+                              },
                               PageStackAction.Immediate)
         }
     }
