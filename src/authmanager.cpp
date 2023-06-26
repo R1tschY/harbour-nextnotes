@@ -125,7 +125,7 @@ void AuthManager::setBusy()
 }
 
 void AuthManager::setError(int code, const QString &message)
-{qCDebug(logger) << __PRETTY_FUNCTION__ << __LINE__;
+{qCDebug(logger) << __PRETTY_FUNCTION__ << __LINE__ << code << message;
     m_state = AuthManager::Error;
     m_errorCode = code;
     m_errorString = message;

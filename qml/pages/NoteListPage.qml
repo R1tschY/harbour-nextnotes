@@ -13,24 +13,37 @@ Page {
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
+    function loadNotes() {
+        var res
+        db.transaction(function(tx) {
+            res = repository.getAll(tx)
+        })
+        return res
+    }
+
     SilicaListView {
         id: listView
-        model: 20
+        model: loadNotes()
         anchors.fill: parent
         header: PageHeader {
-            title: qsTr("Nested Page")
+            title: qsTr("Nextcloud Notes")
         }
+
         delegate: BackgroundItem {
             id: delegate
 
             Label {
                 x: Theme.horizontalPageMargin
-                text: qsTr("Item") + " " + index
+                text: modelData.title
                 anchors.verticalCenter: parent.verticalCenter
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
-            onClicked: console.log("Clicked " + index)
+            onClicked: pageStack.push(Qt.resolvedUrl("NotePage.qml"), {
+                                             "noteId": modelData.id,
+                                             "note": modelData
+                                         })
         }
-        VerticalScrollDecorator {}
+
+        VerticalScrollDecorator { flickable: listView }
     }
 }

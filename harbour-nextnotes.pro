@@ -28,11 +28,12 @@ DISTFILES += qml/harbour-nextnotes.qml \
     qml/api/NextCloudNotesRequest.qml \
     qml/api/NextCloudRequest.qml \
     qml/cover/CoverPage.qml \
+    qml/dateUtil.js \
     qml/db/DbConnection.qml \
     qml/db/Note.qml \
     qml/db/NotesRepository.qml \
-    qml/pages/FirstPage.qml \
     qml/pages/NoteListPage.qml \
+    qml/pages/NotePage.qml \
     qml/pages/StartupPage.qml \
     qml/pages/LoginPage.qml \
     qml/pages/ErrorPage.qml \

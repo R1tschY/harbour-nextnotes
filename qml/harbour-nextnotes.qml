@@ -24,6 +24,10 @@ ApplicationWindow {
         id: notesClient
     }
 
+    NotesRepository {
+        id: repository
+    }
+
     SyncService {
         id: syncService
     }

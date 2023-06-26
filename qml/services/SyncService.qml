@@ -17,10 +17,6 @@ Container {
 
     // private
 
-    NotesRepository {
-        id: repository
-    }
-
     NextCloudNotesRequest {
         id: request
         chunkSize: 10

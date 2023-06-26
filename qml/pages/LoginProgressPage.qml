@@ -30,7 +30,7 @@ Page {
         }
 
         onLoggedIn: {
-            pageStack.replaceAbove(null, Qt.resolvedUrl("RoomListPage.qml"))
+            pageStack.replaceAbove(null, Qt.resolvedUrl("NoteListPage.qml"))
         }
     }
 

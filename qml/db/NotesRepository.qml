@@ -6,7 +6,7 @@ QtObject {
         console.log("Repo.create", tx, note)
         tx.executeSql(
             'INSERT INTO notes (id, etag, readonly, content, title, category, favorite, modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [note.id, note.etag, note.readonly, note.context, note.title, note.category, note.favorite, note.modified])
+            [note.id, note.etag, note.readonly, note.content, note.title, note.category, note.favorite, note.modified])
     }
 
     function update(tx, note) {
@@ -18,7 +18,7 @@ QtObject {
         var results = tx.executeSql('SELECT id, etag, readonly, content, title, category, favorite, modified FROM notes')
         var length = results.rows.length
         for (var i = 0; i < length; i++) {
-            res.push(results.rows.item(0))
+            res.push(results.rows.item(i))
         }
         return res
     }
