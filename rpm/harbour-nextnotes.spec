@@ -8,7 +8,7 @@ Name:       harbour-nextnotes
 # >> macros
 # << macros
 
-Summary:    Nextcloud Notes Application
+Summary:    Nextcloud Notes
 Version:    0.1
 Release:    1
 Group:      Qt/Qt
@@ -17,6 +17,9 @@ URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-nextnotes.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   sailfishsecretsdaemon
+Requires:   sailfishsecretsdaemon-secretsplugin-common
+Requires:   sailfishsecretsdaemon-secretsplugins-default
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
