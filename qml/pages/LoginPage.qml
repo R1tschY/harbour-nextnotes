@@ -53,18 +53,19 @@ Page {
 
             TextField {
                 id: serverField
-                label: qsTr("Server URL")
-                placeholderText: label
+                label: qsTr("Nextcloud URL")
+                placeholderText: qsTr("Nextcloud URL (must be HTTPS)")
                 width: parent.width
                 text: ""
 
-                EnterKey.enabled: text.length > 0
+                EnterKey.enabled: acceptableInput
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: usernameField.focus = true
+
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                     | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase | Qt.ImhNoPredictiveText
                 validator: RegExpValidator {
-                    regExp: /(https?:\/\/.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+                    regExp: /(https:\/\/.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
                 }
             }
 
@@ -77,7 +78,10 @@ Page {
                 EnterKey.enabled: text.length > 0
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: passwordField.focus = true
+
                 inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
+
+                errorHighlight: text.length === 0
             }
 
             PasswordField {
@@ -90,6 +94,8 @@ Page {
                         usernameField.text,
                         passwordField.text,
                         serverField.text)
+
+                errorHighlight: text.length === 0
             }
         }
 
